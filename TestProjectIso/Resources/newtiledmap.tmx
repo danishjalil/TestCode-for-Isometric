@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="30" height="30" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="grass-tiles-2-small" tilewidth="32" tileheight="32">
+  <image source="tileset/grass-tiles-2-small.png" width="384" height="192"/>
+ </tileset>
+ <tileset firstgid="73" name="qubodup-bush_0" tilewidth="32" tileheight="32">
+  <image source="tileset/qubodup-bush_0.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="74" name="tree2-final" tilewidth="32" tileheight="32">
+  <image source="tileset/tree2-final.png" width="256" height="256"/>
+ </tileset>
+ <layer name="Background" width="30" height="30">
+  <properties>
+   <property name="cc_vertexz" value="-1000"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztk8EOwjAMQ7vBddBrGf//nRRplkzUlCRMnGLJYsu0vjgLayllmXgjc33tvnRfha3S3odHz1C7d1fhCFeeUZWzUdu7n8JerjY7ro2yt+4H9WAVeJKLbDfKN8p+Nne2OzzXX7lb+exBy1+Pe3CY6dlnnN9ED2/zjDkj2GdwsVvL0YOcH1+DDdZONQ9X5hxZ9sH8SF7+rs1gZsvfSF6PNb5nn2eztc488j+yzPbbvCPcVCqVSqVS/9cLnVYPeA==
+  </data>
+ </layer>
+ <layer name="Foreground" width="30" height="30">
+  <properties>
+   <property name="cc_vertexz" value="automatic"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztzSUWgAAABFEOiRSkIAUpSEEKcm3mFBtg572fJwic+1YhIsRIhN8UGXIUwm+JCjUa4bdFhx6D8DtiwoxF+F2xYcch/J64cOMRfp1zzjn3j17dbQv7
+  </data>
+ </layer>
+</map>
