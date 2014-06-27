@@ -49,6 +49,7 @@ bool HelloWorld::init()
     player =  CCSprite::create("troll_1.png");
     ball = CCSprite::create("tinyball.png");
     
+    
     player->setPosition(ccp(200,200));
     player->setVisible(false);
     this->addChild(player);
@@ -112,7 +113,7 @@ bool HelloWorld::init()
     height_tile = abs(p1.y - p3.y);
     
    
-    
+    ball->setPosition(convertTile2iso(ccp(0,9)));
     //convert2Tilecord(ccp(0,0));
     return true;
     
@@ -199,7 +200,7 @@ void HelloWorld::ccTouchesMoved(CCSet * pTouches, CCEvent * pEvent) {
         }
     }
     */
-    
+     /*
     
     CCPoint clogtilepos = isoToTiled(bldng->getPosition());
     CCLog("Position of building is %f and %f", clogtilepos.x , clogtilepos.y);
@@ -244,7 +245,7 @@ void HelloWorld::ccTouchesMoved(CCSet * pTouches, CCEvent * pEvent) {
         }
         x = x-1;
     }
-    
+  */  
     
     
 }
@@ -259,6 +260,59 @@ void HelloWorld::ccTouchesEnded (CCSet *pTouches, CCEvent *pEvent){
 	CCSize size_gl = pEGLView->getFrameSize();
 	float ab = size_gl.height;
 	
+    
+    
+    CCPoint clogtilepos = isoToTiled(bldng->getPosition());
+    CCLog("Position of building is %f and %f", clogtilepos.x , clogtilepos.y);
+    CCLog("Width and height of building is %f and %f", bldng->getContentSize().width,bldng->getContentSize().height);
+    CCLog("Anchor point is %f and %f",bldng->getAnchorPoint().x,bldng->getAnchorPoint().y);
+    int bldng_width_tiles = bldng->getContentSize().width/width_tile;
+    int bldng_height_tiles = bldng->getContentSize().height/height_tile;
+    auto bottom_left = ccp(clogtilepos.x+(bldng_height_tiles/2) ,clogtilepos.y+(bldng_width_tiles/2));
+    CCLog("Collidable building middle position x and y are %f and %f", clogtilepos.x , clogtilepos.y);
+    
+    clogtilepos = isoToTiled(bottom_left);
+    //CCLog("Bottom left position in iso is %f and %f" , bottom_left.x , bottom_left.y);
+    CCLog("Collidable building bottom left position in tiles, x and y are %f and %f", bottom_left.x , bottom_left.y);
+    CCLog("Width of building is %d and height is %d",bldng_width_tiles,bldng_height_tiles);
+    int x = bottom_left.x;
+    int y = clogtilepos.y;
+    bldng_height_tiles = bldng_height_tiles;
+    bldng_width_tiles = bldng_width_tiles;
+    
+    float f = _tileMap->getMapSize().height;
+    CCLog("Total tiles are %f", f);
+    for (int i = 0 ; i<bldng_width_tiles; i++) {
+        
+        y = bottom_left.y;
+        
+        for (int j = 0; j<bldng_height_tiles;j++) {
+            //CCLog("u cant walk on these tiles %d and %d",x,y);
+            //CCPoint point = convertTiletoPosition(ccp(x,y));
+            //CCLog("u cant walk on this position %f and %f",point.x,point.y);
+            //CCLog("The y position of the building is %d",y);
+            
+            CCLog("x and y cordinates in tiles are  tiles %d and %d",x,y);
+            
+            if((x >= 0 && x < _background->getLayerSize().width) && y >= 0 && y < _background->getLayerSize().height) {
+                //GameSprite* temp = (GameSprite*)_background->tileAt(ccp(x,y));
+                CCLog("u cant walk on these tiles %d and %d",x,y);
+                tiles_vec[x][y].blocked = true;
+                //temp->setCollidable(true);
+            }
+            y = y - 1;
+            
+        }
+        x = x-1;
+    }
+    
+
+    
+    
+    
+    
+    
+    
     
 	for( j = pTouches->begin(); j != pTouches->end(); j++)
 	{
@@ -294,12 +348,12 @@ void HelloWorld::ccTouchesEnded (CCSet *pTouches, CCEvent *pEvent){
         }
         */
         if (touch) {
-            CCPoint playerPos = player->getPosition();
+            CCPoint playerPos = ball->getPosition();
             //CCPoint touchLocation = touch->getLocation();
             auto check_pos = _background->tileAt(ccp(0,0))->getPosition();
             auto temp = isoToTiled(playerPos);
-            temp.x = temp.x + 1;
-            temp.y = 0;
+            //temp.x = temp.x + 1;
+            //temp.y = 0;
             //temp = ccp(0,0);
             CCPoint newpos = convertTile2iso(temp);
             CCPoint tilepos = isoToTiled(newpos);
@@ -597,7 +651,7 @@ std::stack<node_block> HelloWorld::bfs(CCPoint start , CCPoint goal) {
     node_block node,goal_node;
     node.Parent = start;
     node.Tile =  start;
-    path_temp.push(node);
+    //path_temp.push(node);
     openlist.push(node);
     
     if (start.x == goal.x && start.y == goal.y) {
@@ -618,6 +672,7 @@ std::stack<node_block> HelloWorld::bfs(CCPoint start , CCPoint goal) {
         
         if(curnode.Tile.x == goal.x && curnode.Tile.y == goal.y) {
             goal_node = curnode;
+            CCLog("Goal Found");
             break;
         }
         
@@ -714,7 +769,7 @@ std::stack<node_block> HelloWorld::bfs(CCPoint start , CCPoint goal) {
 }
     
     
-    
+    return path;
     
 }
 
@@ -769,11 +824,27 @@ node_block HelloWorld::findtileClosedList (node_block blk, std::list<node_block>
 
 
 void HelloWorld::setlateposition(cocos2d::CCObject* pSender) {
-    this->setPlayerPosition(convertTile2iso(path_tiles.top().Tile));
-    path_tiles.pop();
+    
     if (path_tiles.empty()) {
         
         this->unschedule( schedule_selector(HelloWorld::setlateposition));
+        return;
     }
+    
+    if(valid_tile_move(path_tiles.top().Tile)) {
+        CCPoint tilecord = path_tiles.top().Tile;
+        CCFiniteTimeAction* actionMove =
+        CCMoveTo::create( (float)0.45,convertTile2iso(path_tiles.top().Tile) );
+        path_tiles.pop();
+        ball->runAction(actionMove);
+        auto sprite = _background->tileAt(tilecord);
+        sprite->setColor(ccc3(0,0,255));
+        
+    }
+    
+                //this->setPlayerPosition(convertTile2iso(path_tiles.top().Tile));
+    
+  
   
 }
+
