@@ -227,6 +227,9 @@
 		379BB9D417F03F3700829B88 /* SceneReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB99317F03F3700829B88 /* SceneReader.cpp */; };
 		46513EB1187BFBA200B5ABE1 /* UITouchGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46513EAF187BFBA200B5ABE1 /* UITouchGroup.cpp */; };
 		7855E0E1153FEF240059DD9A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7855E0DF153FEF240059DD9A /* Default.png */; };
+		B60F0C00195AEAC400A8BC7D /* tinyball.png in Resources */ = {isa = PBXBuildFile; fileRef = B60F0BFF195AEAC400A8BC7D /* tinyball.png */; };
+		B66467D119598BDD00F11ED9 /* iso-test-objectgroup.tmx in Resources */ = {isa = PBXBuildFile; fileRef = B66467CF19598BDD00F11ED9 /* iso-test-objectgroup.tmx */; };
+		B66467D219598BDD00F11ED9 /* iso.png in Resources */ = {isa = PBXBuildFile; fileRef = B66467D019598BDD00F11ED9 /* iso.png */; };
 		B66D614C1952F4CA00C49A7C /* tiled_map.png in Resources */ = {isa = PBXBuildFile; fileRef = B66D614B1952F4CA00C49A7C /* tiled_map.png */; };
 		B66D614E1952F84100C49A7C /* building.png in Resources */ = {isa = PBXBuildFile; fileRef = B66D614D1952F84100C49A7C /* building.png */; };
 		B66D61501953007A00C49A7C /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = B66D614F1953007A00C49A7C /* button.png */; };
@@ -238,6 +241,8 @@
 		B68E72A71952C64C008FDA34 /* troll_1.png in Resources */ = {isa = PBXBuildFile; fileRef = B68E72A51952C64C008FDA34 /* troll_1.png */; };
 		B68E72A91952D1FA008FDA34 /* Ground_bk.png in Resources */ = {isa = PBXBuildFile; fileRef = B68E72A81952D1FA008FDA34 /* Ground_bk.png */; };
 		B68E72AB1952D208008FDA34 /* building.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B68E72AA1952D208008FDA34 /* building.jpeg */; };
+		B6CDA1A119580FAD00984C87 /* GameSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B6CDA19F19580FAD00984C87 /* GameSprite.cpp */; };
+		B6CDA1A319583A5F00984C87 /* building2.png in Resources */ = {isa = PBXBuildFile; fileRef = B6CDA1A219583A5F00984C87 /* building2.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712461292920000B8313A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB212928DE900B8313A /* libxml2.dylib */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -727,6 +732,9 @@
 		46513EAF187BFBA200B5ABE1 /* UITouchGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UITouchGroup.cpp; sourceTree = "<group>"; };
 		46513EB0187BFBA200B5ABE1 /* UITouchGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITouchGroup.h; sourceTree = "<group>"; };
 		7855E0DF153FEF240059DD9A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
+		B60F0BFF195AEAC400A8BC7D /* tinyball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tinyball.png; sourceTree = "<group>"; };
+		B66467CF19598BDD00F11ED9 /* iso-test-objectgroup.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "iso-test-objectgroup.tmx"; sourceTree = "<group>"; };
+		B66467D019598BDD00F11ED9 /* iso.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iso.png; sourceTree = "<group>"; };
 		B66D614B1952F4CA00C49A7C /* tiled_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tiled_map.png; sourceTree = "<group>"; };
 		B66D614D1952F84100C49A7C /* building.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = building.png; sourceTree = "<group>"; };
 		B66D614F1953007A00C49A7C /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
@@ -738,6 +746,9 @@
 		B68E72A51952C64C008FDA34 /* troll_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = troll_1.png; sourceTree = "<group>"; };
 		B68E72A81952D1FA008FDA34 /* Ground_bk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ground_bk.png; sourceTree = "<group>"; };
 		B68E72AA1952D208008FDA34 /* building.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = building.jpeg; sourceTree = "<group>"; };
+		B6CDA19F19580FAD00984C87 /* GameSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameSprite.cpp; path = ../Classes/GameSprite.cpp; sourceTree = "<group>"; };
+		B6CDA1A019580FAD00984C87 /* GameSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameSprite.h; path = ../Classes/GameSprite.h; sourceTree = "<group>"; };
+		B6CDA1A219583A5F00984C87 /* building2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = building2.png; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB212928DE900B8313A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -1274,6 +1285,8 @@
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
 				1AFAF8B516D35DE700DB1158 /* HelloWorldScene.cpp */,
 				1AFAF8B616D35DE700DB1158 /* HelloWorldScene.h */,
+				B6CDA19F19580FAD00984C87 /* GameSprite.cpp */,
+				B6CDA1A019580FAD00984C87 /* GameSprite.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -1728,6 +1741,10 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B60F0BFF195AEAC400A8BC7D /* tinyball.png */,
+				B66467CF19598BDD00F11ED9 /* iso-test-objectgroup.tmx */,
+				B66467D019598BDD00F11ED9 /* iso.png */,
+				B6CDA1A219583A5F00984C87 /* building2.png */,
 				B66D615B19540E8B00C49A7C /* iso-test.png */,
 				B66D61511953210E00C49A7C /* newtiledmap.tmx */,
 				B66D614F1953007A00C49A7C /* button.png */,
@@ -1831,6 +1848,7 @@
 				B66D615C19540E8B00C49A7C /* iso-test.png in Resources */,
 				D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */,
 				D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */,
+				B66467D119598BDD00F11ED9 /* iso-test-objectgroup.tmx in Resources */,
 				B66D61501953007A00C49A7C /* button.png in Resources */,
 				D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */,
 				B66D615A19540DF900C49A7C /* iso-test2.tmx in Resources */,
@@ -1838,9 +1856,12 @@
 				B66D615919540DF900C49A7C /* iso-test2.png in Resources */,
 				D446FD6E16102124000ADA7B /* Default@2x.png in Resources */,
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
+				B60F0C00195AEAC400A8BC7D /* tinyball.png in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
+				B6CDA1A319583A5F00984C87 /* building2.png in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
 				B66D614E1952F84100C49A7C /* building.png in Resources */,
+				B66467D219598BDD00F11ED9 /* iso.png in Resources */,
 				B68E72AB1952D208008FDA34 /* building.jpeg in Resources */,
 				B66D61521953210E00C49A7C /* newtiledmap.tmx in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
@@ -1923,6 +1944,7 @@
 				15A3D9A71682F7F9002FB0C5 /* cpCollision.c in Sources */,
 				15A3D9A81682F7F9002FB0C5 /* cpHashSet.c in Sources */,
 				15A3D9A91682F7F9002FB0C5 /* cpPolyShape.c in Sources */,
+				B6CDA1A119580FAD00984C87 /* GameSprite.cpp in Sources */,
 				15A3D9AA1682F7F9002FB0C5 /* cpShape.c in Sources */,
 				15A3D9AB1682F7F9002FB0C5 /* cpSpace.c in Sources */,
 				15A3D9AC1682F7F9002FB0C5 /* cpSpaceComponent.c in Sources */,

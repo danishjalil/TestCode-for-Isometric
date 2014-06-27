@@ -1,10 +1,19 @@
 #ifndef __HELLOWORLD_SCENE_H__
 #define __HELLOWORLD_SCENE_H__
-#include "cocos2d.h"
-#include "cocos-ext.h"
+#include "GameSprite.h"
+#include <vector.h>
+#include <queue>
+#include <stack>
+#include <list.h>
 
 USING_NS_CC;
 using namespace extension;
+
+struct node_block {
+    CCPoint Parent;
+    CCPoint Tile;
+};
+
 class HelloWorld : public cocos2d::CCLayer
 {
 private:
@@ -14,7 +23,34 @@ private:
     CCTMXLayer *_background;
     CCTMXLayer *_tree;
     CCPoint tileCoordForPosition(CCPoint position);
-	cocos2d::CCSpriteBatchNode * _batchNode;
+    CCPoint convert2Tilecord(CCPoint position);
+    CCPoint convertTiletoPosition (CCPoint tilepos);
+    bool check_collision_sprites (CCSprite*sprite , CCSprite*sprite2);
+    struct Ctile{
+        CCSprite *sprite;
+        bool blocked;
+    };
+  
+    
+    std::queue<node_block> openlist;
+    std::list<node_block> closedlist;
+    std::vector <std::vector<Ctile> >tiles_vec;
+    std::stack<node_block> path_tiles;
+    CCPoint isoTo2D(CCPoint pt);
+    CCPoint isoToTiled(CCPoint pt);
+    int width_tile;
+    int height_tile;
+    std::stack<node_block> bfs(CCPoint start , CCPoint goal);
+    bool valid_tile_move( CCPoint tile );
+    bool searchClosedList (node_block blk, std::list<node_block> l);
+    node_block findtileClosedList (node_block blk, std::list<node_block> mylist);
+    CCPoint convertTile2iso(CCPoint pos);
+    CCPoint twoDToIso(CCPoint pt);
+    cocos2d::CCSpriteBatchNode * _batchNode;
+    CCSprite*ball;
+    bool searchOpenList (node_block blk , std::queue<node_block> mylist);
+    
+    
 	cocos2d::CCSprite * _ship;
     CCSprite *_spacedust1;
     CCSprite *_spacedust2;
@@ -58,6 +94,7 @@ public:
     virtual void ccTouchesMoved	(CCSet *pTouches,CCEvent *pEvent);
     int check_collision(CCPoint cord, CCSprite*sprite);
     void setPlayerPosition(CCPoint position);
+    void setlateposition(cocos2d::CCObject* pSender);
 
   
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
